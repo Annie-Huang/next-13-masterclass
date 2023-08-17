@@ -32,7 +32,8 @@ Server component:
     However, because they don't get hydrated in the browser it means they are not interactive.
     You can use client components for the small areas of a page that do need to be interactive.
 
-
+Link / Routes:
+    When nextjs see a link component on the page, it prefetches the page from the link in the background so by the time we click the link it already has the content
 
 
 

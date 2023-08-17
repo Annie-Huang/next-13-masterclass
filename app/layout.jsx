@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
@@ -9,11 +10,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // When nextjs see a link component on the page, it prefetches the page from the link in the background so by the time we click the link
+  // it already has the content
   return (
     <html lang='en'>
       <body className={inter.className}>
         <nav>
           <h1>Dojo Helpdesk</h1>
+          <Link href='/'>Dashboard</Link>
+          <Link href='/tickets'>Tickets</Link>
         </nav>
         {children}
       </body>
