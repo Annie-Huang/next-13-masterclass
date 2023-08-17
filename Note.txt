@@ -40,7 +40,11 @@ Link / Routes:
     When nextjs see a link component on the page, it prefetches the page from the link in the background so by the time we click the link it already has the content
 
 
-
+Tailwind:
+    Can use @apply in the css file to apply Tailwind class:
+    main > h2 {
+      @apply mb-4 pb-2 text-base;
+    }
 
 
 
