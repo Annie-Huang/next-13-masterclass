@@ -7,6 +7,7 @@ https://nextjs.org/docs/getting-started/installation
 https://nextjs.org/docs
 https://nextjs.org/docs/getting-started/react-essentials#thinking-in-server-components    << Got a nice diagram of the page, 'thinking-in-server-components.avif', can open with browser
 https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-client-components
+https://nextjs.org/docs/pages/api-reference/components/image#props
 
 ----------------------------------------------------------------------
 
@@ -46,7 +47,10 @@ Tailwind:
       @apply mb-4 pb-2 text-base;
     }
 
-
+Image:
+    https://nextjs.org/docs/pages/api-reference/components/image#props
+    <Image src={Logo} alt='Dojo Helpdesk logo' width={70} quality={100} placeholder='blur' />
+    placeholder='blur' will blur the image while it's loading.
 
 
 
