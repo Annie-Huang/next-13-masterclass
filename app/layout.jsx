@@ -1,9 +1,10 @@
-import Link from 'next/link';
 import './globals.css';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 import Navbar from '@/app/components/Navbar';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
+const rubik = Rubik({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +16,8 @@ export default function RootLayout({ children }) {
   // it already has the content
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      {/*<body className={inter.className}>*/}
+      <body className={rubik.className}>
         <Navbar />
         {children}
       </body>
