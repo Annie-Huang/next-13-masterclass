@@ -1,13 +1,13 @@
 Next.js 13 Masterclass (https://netninja.dev/p/next-13-masterclass)
 
-https://github.com/iamshaunjp/nextjs-masterclass
+https://github.com/iamshaunjp/nextjs-masterclass    << each lesson got its own folder
 https://github.com/Annie-Huang/next-13-masterclass
 
 https://nextjs.org/docs/getting-started/installation
 
 ----------------------------------------------------------------------
 
-PS C:\react> npx create-next-app@13.4.9
+PS C:\react> npx create-next-app@13.4.9         << We are only update to 13.4.16 now as 17/08/2023
 Need to install the following packages:
   create-next-app@13.4.9
 Ok to proceed? (y) y
