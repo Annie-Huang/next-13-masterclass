@@ -4,6 +4,9 @@ https://github.com/iamshaunjp/nextjs-masterclass    << each lesson got its own f
 https://github.com/Annie-Huang/next-13-masterclass
 
 https://nextjs.org/docs/getting-started/installation
+https://nextjs.org/docs
+https://nextjs.org/docs/getting-started/react-essentials#thinking-in-server-components    << Got a nice diagram of the page, 'thinking-in-server-components.avif', can open with browser
+https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-client-components
 
 ----------------------------------------------------------------------
 
@@ -18,4 +21,40 @@ Ok to proceed? (y) y
 √ Would you like to use `src/` directory? ... No
 √ Would you like to use App Router? (recommended) ... Yes
 ? Would you like to customize the default import alias? » No
+
+
+Client component:
+    Rendered on the server, Hydrated in the browser.
+Server component:
+    Rendered on the server, No hydrated needed.
+    Meaning it reduce the overall amount of JavaScript sent to the browser. Also we can fetch data from a DB directly inside server component
+    and access all the backend-resource from them as well. Was safe to use private API keys or tokens within server component.
+    However, because they don't get hydrated in the browser it means they are not interactive.
+    You can use client components for the small areas of a page that do need to be interactive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
