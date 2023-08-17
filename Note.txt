@@ -1,0 +1,21 @@
+Next.js 13 Masterclass (https://netninja.dev/p/next-13-masterclass)
+
+https://github.com/iamshaunjp/nextjs-masterclass
+https://github.com/Annie-Huang/next-13-masterclass
+
+https://nextjs.org/docs/getting-started/installation
+
+----------------------------------------------------------------------
+
+PS C:\react> npx create-next-app@13.4.9
+Need to install the following packages:
+  create-next-app@13.4.9
+Ok to proceed? (y) y
+√ What is your project named? ... next-13-masterclass
+√ Would you like to use TypeScript? ... No
+√ Would you like to use ESLint? ... Yes
+√ Would you like to use Tailwind CSS? ... Yes
+√ Would you like to use `src/` directory? ... No
+√ Would you like to use App Router? (recommended) ... Yes
+? Would you like to customize the default import alias? » No
+
