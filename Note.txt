@@ -10,6 +10,10 @@ https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-
 
 ----------------------------------------------------------------------
 
+This project use:
+global.css, tailwind, javascript (not typescript)
+
+
 PS C:\react> npx create-next-app@13.4.9         << We are only update to 13.4.16 now as 17/08/2023
 Need to install the following packages:
   create-next-app@13.4.9
