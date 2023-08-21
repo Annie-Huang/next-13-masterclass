@@ -58,6 +58,13 @@ Image:
 
 
 
+Refetch data on the server component every XX seconds or no caching on data:
+  const res = await fetch('http://localhost:4000/tickets', {
+    next: {
+      // revalidate: 30, // refetch every 30 seconds
+      revalidate: 0, // use 0 to opt out of the using cache
+    },
+  });
 
 
 
