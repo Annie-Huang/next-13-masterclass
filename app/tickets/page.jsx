@@ -1,4 +1,3 @@
-import React from 'react';
 import TicketList from '@/app/tickets/TicketList';
 
 export default function Tickets() {
