@@ -1,3 +1,6 @@
+import { notFound } from 'next/navigation';
+export const dynamicParams = true; // default val = true
+
 // When we build for production, this is going to make all the routes and pages for the tickets ahead of time.
 // But if you make 'revalidate: 0', you are making the generateStaticParams redundant as nothing will be cache
 export async function generateStaticParams() {
@@ -16,6 +19,12 @@ async function getTicket(id) {
       revalidate: 60, // refetch every 60 seconds
     },
   });
+
+  // If for some reason we happy to get to a route that is not coming back from the ticketList call.
+  // e.g. http://localhost:3000/tickets/123, route it the the default next 404 page.
+  if (!res.ok) {
+    notFound();
+  }
 
   return res.json();
 }
