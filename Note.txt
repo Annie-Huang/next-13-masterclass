@@ -17,7 +17,9 @@ PS C:\react\next-13-masterclass> npm run dev
 
 
 This project use:
+--------------------------------
 global.css, tailwind, javascript (not typescript)
+
 
 
 PS C:\react> npx create-next-app@13.4.9         << We are only update to 13.4.16 now as 17/08/2023
@@ -34,25 +36,31 @@ Ok to proceed? (y) y
 
 
 Client component:
+--------------------------------
     Rendered on the server, Hydrated in the browser.
 Server component:
+--------------------------------
     Rendered on the server, No hydrated needed.
     Meaning it reduce the overall amount of JavaScript sent to the browser. Also we can fetch data from a DB directly inside server component
     and access all the backend-resource from them as well. Was safe to use private API keys or tokens within server component.
     However, because they don't get hydrated in the browser it means they are not interactive.
     You can use client components for the small areas of a page that do need to be interactive.
 
+
 Link / Routes:
+--------------------------------
     When nextjs see a link component on the page, it prefetches the page from the link in the background so by the time we click the link it already has the content
 
 
 Tailwind:
+--------------------------------
     Can use @apply in the css file to apply Tailwind class:
     main > h2 {
       @apply mb-4 pb-2 text-base;
     }
 
 Image:
+--------------------------------
     https://nextjs.org/docs/pages/api-reference/components/image#props
     <Image src={Logo} alt='Dojo Helpdesk logo' width={70} quality={100} placeholder='blur' />
     placeholder='blur' will blur the image while it's loading.
@@ -60,6 +68,7 @@ Image:
 
 
 Refetch data on the server component every XX seconds or no caching on data:
+------------------------------------------------------------------------------------------------
   const res = await fetch('http://localhost:4000/tickets', {
     next: {
       // revalidate: 30, // refetch every 30 seconds
@@ -68,7 +77,25 @@ Refetch data on the server component every XX seconds or no caching on data:
   });
 
 
+generateStaticParams
+--------------------------------
+/*
+We tell the nextjs in advance all the IDs so that when we build the application it knows all fo the pages and
+routes that it needs to make and that way they can be statically rendered and served from CDN and the way we do it
+is by using 'generateStaticParams'
 
+When we build for production, this is going to make all the routes and pages for the tickets ahead of time.
+But if you make 'revalidate: 0', you are making the generateStaticParams redundant as nothing will be cache
+*/
+export async function generateStaticParams() {
+  // [{id: '1'}, {id: '2'}, ...]
+
+  const res = await fetch('http://localhost:4000/tickets');
+
+  const tickets = await res.json();
+
+  return tickets.map((ticket) => ({ id: ticket.id }));
+}
 
 
 

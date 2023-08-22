@@ -1,8 +1,14 @@
 import { notFound } from 'next/navigation';
 export const dynamicParams = true; // default val = true
 
-// When we build for production, this is going to make all the routes and pages for the tickets ahead of time.
-// But if you make 'revalidate: 0', you are making the generateStaticParams redundant as nothing will be cache
+/*
+We tell the nextjs in advance all the IDs so that when we build the application it knows all fo the pages and
+routes that it needs to make and that way they can be statically rendered and served from CDN and the way we do it
+is by using 'generateStaticParams'
+
+When we build for production, this is going to make all the routes and pages for the tickets ahead of time.
+But if you make 'revalidate: 0', you are making the generateStaticParams redundant as nothing will be cache
+*/
 export async function generateStaticParams() {
   // [{id: '1'}, {id: '2'}, ...]
 
