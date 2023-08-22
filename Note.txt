@@ -1,4 +1,5 @@
 Next.js 13 Masterclass (https://netninja.dev/p/next-13-masterclass)
+Next 13 Crash Course (https://www.youtube.com/playlist?list=PL4cUxeGkcC9jZIVqmy_QhfQdi6mzQvJnT) << First part of the paid online course
 
 https://github.com/iamshaunjp/nextjs-masterclass    << each lesson got its own folder
 https://github.com/Annie-Huang/next-13-masterclass
