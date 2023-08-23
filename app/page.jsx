@@ -39,6 +39,8 @@ export default function Home() {
           eveniet, aspernatur enim quas.
         </p>
       </div>
+
+      <div className='first-letter:text-red-400'>Annie</div>
     </main>
   );
 }
