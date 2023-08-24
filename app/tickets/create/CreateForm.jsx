@@ -29,10 +29,14 @@ export default function CreateForm() {
       },
       body: JSON.stringify(ticket),
     });
+
+    if (res.status === 201) {
+      router.push('/tickets');
+    }
   };
 
   return (
-    <form className='w-1/2'>
+    <form onSubmit={handleSubmit} className='w-1/2'>
       <label>
         <span>Title:</span>
         <input
