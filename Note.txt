@@ -9,7 +9,7 @@ https://nextjs.org/docs
 https://nextjs.org/docs/getting-started/react-essentials#thinking-in-server-components    << Got a nice diagram of the page, 'thinking-in-server-components.avif', can open with browser
 https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-client-components
 https://nextjs.org/docs/pages/api-reference/components/image#props
-
+https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states
 ----------------------------------------------------------------------
 
 PS C:\react\next-13-masterclass> json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
