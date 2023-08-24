@@ -31,6 +31,9 @@ export default function CreateForm() {
     });
 
     if (res.status === 201) {
+      // Tell router to refetch data from the backend.
+      router.refresh();
+
       router.push('/tickets');
     }
   };
