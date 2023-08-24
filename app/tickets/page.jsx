@@ -1,4 +1,6 @@
 import TicketList from '@/app/tickets/TicketList';
+import { Suspense } from 'react';
+import Loading from '@/app/loading';
 
 export default function Tickets() {
   return (
@@ -12,7 +14,10 @@ export default function Tickets() {
         </div>
       </nav>
 
-      <TicketList />
+      {/* We only want the loading to show in the TicketList component but still delay the <nav> section */}
+      <Suspense fallback={<Loading />}>
+        <TicketList />
+      </Suspense>
     </main>
   );
 }
