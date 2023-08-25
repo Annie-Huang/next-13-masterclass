@@ -156,6 +156,8 @@ app
 
 Layout - nesting layout
 -----------------------------------------------------
+https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#layouts
+
 app/(dashboard)/layout.jsx's content is nested as children of the app/layout.jsx component
 
 The top-most layout is called the Root Layout. This required layout is shared across all pages in an application. Root layouts must contain html and body tags.
