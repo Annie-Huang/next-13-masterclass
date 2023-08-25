@@ -11,6 +11,8 @@ https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-
 https://nextjs.org/docs/pages/api-reference/components/image#props
 https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states
 https://nextjs.org/docs/app/building-your-application/routing/route-groups
+https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#layouts
+
 ----------------------------------------------------------------------
 
 PS C:\react\next-13-masterclass> json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
@@ -152,6 +154,13 @@ app
 
 
 
+Layout - nesting layout
+-----------------------------------------------------
+app/(dashboard)/layout.jsx's content is nested as children of the app/layout.jsx component
+
+The top-most layout is called the Root Layout. This required layout is shared across all pages in an application. Root layouts must contain html and body tags.
+
+Layouts in a route are nested by default. Each parent layout wraps child layouts below it using the React children prop.
 
 
 
