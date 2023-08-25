@@ -10,6 +10,7 @@ https://nextjs.org/docs/getting-started/react-essentials#thinking-in-server-comp
 https://nextjs.org/docs/getting-started/react-essentials#when-to-use-server-and-client-components
 https://nextjs.org/docs/pages/api-reference/components/image#props
 https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states
+https://nextjs.org/docs/app/building-your-application/routing/route-groups
 ----------------------------------------------------------------------
 
 PS C:\react\next-13-masterclass> json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
@@ -140,6 +141,8 @@ export async function generateStaticParams() {
 
 Route - ignore certain section in a path
 -----------------------------------------------------
+https://nextjs.org/docs/app/building-your-application/routing/route-groups
+
 app
     (auth)              <--- Putting the '()' will tell next.js to ignore the path and go to the next level instead. e.g. we just use (auth) for grouping.
         login
