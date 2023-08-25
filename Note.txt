@@ -138,7 +138,14 @@ export async function generateStaticParams() {
 }
 
 
-
+Route - ignore certain section in a path
+-----------------------------------------------------
+app
+    (auth)              <--- Putting the '()' will tell next.js to ignore the path and go to the next level instead. e.g. we just use (auth) for grouping.
+        login
+            page.jsx    <--- So you can access this path through http://localhost:3000/login
+        signup
+            page.jsx    <--- So you can access this path through http://localhost:3000/signup
 
 
 
