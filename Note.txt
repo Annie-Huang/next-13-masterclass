@@ -13,6 +13,7 @@ https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-str
 https://nextjs.org/docs/app/building-your-application/routing/route-groups
 https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#layouts
 https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+https://nextjs.org/docs/app/api-reference/functions/next-response
 
 ----------------------------------------------------------------------
 
