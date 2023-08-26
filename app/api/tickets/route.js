@@ -5,6 +5,10 @@
 
 import { NextResponse } from 'next/server';
 
+// If you add this, you will make all functions inside this file to be dynamic calls (call everytime it is request, not cached)
+// https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching
+// export const dynamic = 'force-dynamic';
+
 export async function GET() {
   // Cached
   // const res = await fetch('http://localhost:4000/tickets');
