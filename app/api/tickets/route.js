@@ -6,7 +6,15 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const res = await fetch('http://localhost:4000/tickets');
+  // Cached
+  // const res = await fetch('http://localhost:4000/tickets');
+
+  // Not cached. Make new request everytime
+  const res = await fetch('http://localhost:4000/tickets', {
+    next: {
+      revalidate: 0,
+    },
+  });
 
   const tickets = await res.json();
 
