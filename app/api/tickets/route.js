@@ -5,20 +5,29 @@
 
 import { NextResponse } from 'next/server';
 
-// If you add this, you will make all functions inside this file to be dynamic calls (call everytime it is request, not cached)
-// https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching
-// export const dynamic = 'force-dynamic';
+/*
+If you add this, you will make all functions inside this file to be dynamic calls (call everytime it is request, not cached)
+https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching
+https://nextjs.org/docs/app/building-your-application/routing/route-handlers#opting-out-of-caching
+
+You can opt out of caching by:
+Using the Request object with the GET method.
+Using any of the other HTTP methods.
+Using Dynamic Functions like cookies and headers.
+The Segment Config Options manually specifies dynamic mode.
+*/
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  // Cached
-  // const res = await fetch('http://localhost:4000/tickets');
+  // Cached, unless it got 'export const dynamic = 'force-dynamic';' in above
+  const res = await fetch('http://localhost:4000/tickets');
 
   // Not cached. Make new request everytime
-  const res = await fetch('http://localhost:4000/tickets', {
-    next: {
-      revalidate: 0,
-    },
-  });
+  // const res = await fetch('http://localhost:4000/tickets', {
+  //   next: {
+  //     revalidate: 0,
+  //   },
+  // });
 
   const tickets = await res.json();
 
