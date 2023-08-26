@@ -12,6 +12,7 @@ https://nextjs.org/docs/pages/api-reference/components/image#props
 https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#instant-loading-states
 https://nextjs.org/docs/app/building-your-application/routing/route-groups
 https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#layouts
+https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 
 ----------------------------------------------------------------------
 
@@ -138,6 +139,24 @@ export async function generateStaticParams() {
   const tickets = await res.json();
 
   return tickets.map((ticket) => ({ id: ticket.id }));
+}
+
+generateMetadata
+--------------------------------
+/*
+https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+
+Dynamically generate Metadata for a page.
+*/
+export async function generateMetadata({ params }) {
+  const id = params.id;
+
+  const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  const ticket = await res.json();
+
+  return {
+    title: `Dojo Helpdesk | ${ticket.title}`,
+  };
 }
 
 

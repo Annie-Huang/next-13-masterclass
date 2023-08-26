@@ -2,6 +2,22 @@ import { notFound } from 'next/navigation';
 export const dynamicParams = true; // default val = true
 
 /*
+https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+
+Dynamically generate Metadata for a page.
+*/
+export async function generateMetadata({ params }) {
+  const id = params.id;
+
+  const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  const ticket = await res.json();
+
+  return {
+    title: `Dojo Helpdesk | ${ticket.title}`,
+  };
+}
+
+/*
 We tell the nextjs in advance all the IDs so that when we build the application it knows all fo the pages and
 routes that it needs to make and that way they can be statically rendered and served from CDN and the way we do it
 is by using 'generateStaticParams'
