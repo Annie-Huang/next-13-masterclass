@@ -16,6 +16,9 @@ https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 https://nextjs.org/docs/app/api-reference/functions/next-response
 https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching
 
+https://supabase.com/
+https://supabase.com/docs/guides/auth/auth-helpers/nextjs
+
 ----------------------------------------------------------------------
 
 PS C:\react\next-13-masterclass> json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
@@ -59,7 +62,13 @@ And then you can start up the prod build by:
 PS C:\react\next-13-masterclass> npm start
 
 
+Supabase info
+-------------------------------
+https://supabase.com/docs/guides/auth/auth-helpers/nextjs
 
+project Name: Dojo Helpdesk
+Database Password: HU@6amUgyLqX_QT
+Created .env.local file but this file is not checked in.
 
 
 This project use:
