@@ -70,6 +70,8 @@ project Name: Dojo Helpdesk
 Database Password: HU@6amUgyLqX_QT
 Created .env.local file but this file is not checked in.
 
+PS C:\react\next-13-masterclass> npm install @supabase/auth-helpers-nextjs @supabase/supabase-js
+
 
 This project use:
 --------------------------------
