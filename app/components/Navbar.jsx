@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logo from './dojo-logo.png';
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <nav>
       <Image
@@ -15,6 +15,7 @@ const Navbar = () => {
       <h1>Dojo Helpdesk</h1>
       <Link href='/'>Dashboard</Link>
       <Link href='/tickets'>Tickets</Link>
+      {user && <span>Hello, {user.email}</span>}
     </nav>
   );
 };

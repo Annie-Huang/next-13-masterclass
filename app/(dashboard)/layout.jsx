@@ -1,9 +1,17 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+
 import Navbar from '@/app/components/Navbar';
 
 export default async function DashboardLayout({ children }) {
-  const supabase = createServerComponentClient();
-  const { data } = await supabase.auth.getSelection();
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
+  console.log('data=', data);
+
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+  // console.log('user=', user);
 
   // This will be wrapped as a {children} into the app/layout.jsx file.
   //
@@ -13,7 +21,7 @@ export default async function DashboardLayout({ children }) {
   return (
     <>
       {/*<Navbar />*/}
-      <Navbar user={data.session.user} />
+      <Navbar user={data?.session?.user} />
       {children}
     </>
   );
