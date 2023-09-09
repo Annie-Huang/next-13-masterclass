@@ -7,6 +7,7 @@ export default function LogoutButton() {
   const router = useRouter();
   const handleLogout = async () => {
     // https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#sign-out
+    // After logout is clicked you can see the 'sb-XXXX' is gone in the user Cookies section in the chrome devtool
     const supabase = createClientComponentClient();
     const { error } = await supabase.auth.signOut();
 
