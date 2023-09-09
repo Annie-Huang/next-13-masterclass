@@ -76,6 +76,11 @@ Created .env.local file but this file is not checked in.
 
 PS C:\react\next-13-masterclass> npm install @supabase/auth-helpers-nextjs @supabase/supabase-js
 
+Debug in Supabase info:
+Something you are unable to register a new user when you run your app. that is because your project maybe 'paused' in supabase.
+Login to supabase dashboard (https://supabase.com/dashboard/projects) and make sure the 'Dojo Helpdesk' card does not have a 'paused' badge in it.
+
+
 
 This project use:
 --------------------------------
