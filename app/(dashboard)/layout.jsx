@@ -1,6 +1,10 @@
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import Navbar from '@/app/components/Navbar';
 
-export default function DashboardLayout({ children }) {
+export default async function DashboardLayout({ children }) {
+  const supabase = createServerComponentClient();
+  const { data } = await supabase.auth.getSelection();
+
   // This will be wrapped as a {children} into the app/layout.jsx file.
   //
   // The top-most layout is called the Root Layout. This required layout is shared across all pages in an application. Root layouts must contain html and body tags.
@@ -8,7 +12,8 @@ export default function DashboardLayout({ children }) {
   // Layouts in a route are nested by default. Each parent layout wraps child layouts below it using the React children prop.
   return (
     <>
-      <Navbar />
+      {/*<Navbar />*/}
+      <Navbar user={data.session.user} />
       {children}
     </>
   );
