@@ -5,6 +5,7 @@ import Navbar from '@/app/components/Navbar';
 
 export default async function DashboardLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
+  // https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#sign-out
   const { data } = await supabase.auth.getSession();
   console.log('data=', data);
 
