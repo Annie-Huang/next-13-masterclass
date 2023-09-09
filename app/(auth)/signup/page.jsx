@@ -30,6 +30,9 @@ export default function Signup() {
     if (error) {
       setError(error.message);
     } else {
+      // Once your register successfully, you can see the new user is 'Waiting for verification' in supabase dashboard:
+      // https://supabase.com/dashboard/project/ojnieaohntvqlhyvlebc/auth/users
+      // Once you click the email link, it will direct you to the http://localhost:3000 page
       router.push('/verify');
     }
   };

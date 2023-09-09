@@ -21,6 +21,8 @@ https://supabase.com/docs/guides/auth/auth-helpers/nextjs
 
 ----------------------------------------------------------------------
 
+Need to go to supabase, https://supabase.com/dashboard/projects, and make sure the 'Dojo Helpdesk' project is running (not paused)
+then:
 PS C:\react\next-13-masterclass> npm run db         << json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
 PS C:\react\next-13-masterclass> npm run dev
 
