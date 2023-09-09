@@ -7,7 +7,7 @@ export default async function DashboardLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
   // https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#sign-out
   const { data } = await supabase.auth.getSession();
-  console.log('data=', data);
+  // console.log('data=', data);
 
   // This will be wrapped as a {children} into the app/layout.jsx file.
   //
