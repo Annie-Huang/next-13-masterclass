@@ -28,6 +28,7 @@ PS C:\react\next-13-masterclass> npm run dev
 
 http://localhost:3000/          << ticket dashboard layout
 http://localhost:3000/login     << login layout
+http://localhost:3000/signup    << login layout
 
 
 Build app for production:

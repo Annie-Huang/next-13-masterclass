@@ -23,6 +23,7 @@ export default function Signup() {
       email,
       password,
       options: {
+        // Once the link in the email is clicked, we will forward it the below route.
         emailRedirectTo: `${location.origin}/api/auth/callback`,
       },
     });

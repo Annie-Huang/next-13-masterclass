@@ -8,11 +8,6 @@ export default async function DashboardLayout({ children }) {
   const { data } = await supabase.auth.getSession();
   console.log('data=', data);
 
-  // const {
-  //   data: { user },
-  // } = await supabase.auth.getUser();
-  // console.log('user=', user);
-
   // This will be wrapped as a {children} into the app/layout.jsx file.
   //
   // The top-most layout is called the Root Layout. This required layout is shared across all pages in an application. Root layouts must contain html and body tags.
@@ -21,7 +16,7 @@ export default async function DashboardLayout({ children }) {
   return (
     <>
       {/*<Navbar />*/}
-      <Navbar user={data?.session?.user} />
+      <Navbar user={data.session.user} />
       {children}
     </>
   );
