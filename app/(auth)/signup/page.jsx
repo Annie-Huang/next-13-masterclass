@@ -3,8 +3,11 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 import AuthForm from '@/app/(auth)/AuthForm';
+import { useState } from 'react';
 
 export default function Signup() {
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
 
@@ -13,13 +16,19 @@ export default function Signup() {
     // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#client-side
     // location.origin is the browser address the user currently is on.
     const supabase = createClientComponentClient();
-    await supabase.auth.signUp({
+    // this is a local scoped error, it is different from useState's error
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${location.origin}/api/auth/callback`,
       },
     });
+
+    if (error) {
+      setError(error.message);
+    } else {
+    }
   };
 
   return (
@@ -27,6 +36,8 @@ export default function Signup() {
       <h2 className='text-center'>Sign up</h2>
 
       <AuthForm handleSubmit={handleSubmit} />
+
+      {error && <div className='error'>{error}</div>}
     </main>
   );
 }
