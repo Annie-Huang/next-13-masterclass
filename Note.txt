@@ -21,8 +21,12 @@ https://supabase.com/docs/guides/auth/auth-helpers/nextjs
 
 ----------------------------------------------------------------------
 
-PS C:\react\next-13-masterclass> json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
+PS C:\react\next-13-masterclass> npm run db         << json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
 PS C:\react\next-13-masterclass> npm run dev
+
+http://localhost:3000/          << ticket dashboard layout
+http://localhost:3000/login     << login layout
+
 
 Build app for production:
 --------------------------------
