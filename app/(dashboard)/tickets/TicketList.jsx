@@ -24,6 +24,12 @@ async function getTickets() {
 async function getTickets() {
   const supabase = createServerComponentClient({ cookies });
   const { data, error } = await supabase.from('Tickets').select();
+
+  if (error) {
+    console.log(error.message);
+  }
+
+  return data;
 }
 
 export default async function TicketList() {
