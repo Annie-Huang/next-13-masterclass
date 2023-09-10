@@ -18,6 +18,7 @@ The Segment Config Options manually specifies dynamic mode.
 */
 export const dynamic = 'force-dynamic';
 
+/*
 export async function GET() {
   // Cached, unless it got 'export const dynamic = 'force-dynamic';' in above
   const res = await fetch('http://localhost:4000/tickets');
@@ -48,4 +49,15 @@ export async function POST(request) {
   const newTicket = await res.json();
 
   return NextResponse.json(newTicket, { status: 201 });
+}
+ */
+
+export async function POST(request) {
+  const ticket = await request.json();
+
+  // get supabase instance
+
+  // get the current user session
+
+  // insert the data
 }
