@@ -66,9 +66,11 @@ export async function POST(request) {
   } = await supabase.auth.getSession();
 
   // insert the data
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from('Tickets')
     .insert({ ...ticket, user_email: session.user.email })
     .select()
     .single();
+
+  return NextResponse.json({ data, error });
 }
