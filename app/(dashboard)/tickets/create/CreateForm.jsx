@@ -15,14 +15,22 @@ export default function CreateForm() {
     e.preventDefault();
     setIsLoading(true);
 
+    // const ticket = {
+    //   title,
+    //   body,
+    //   priority,
+    //   user_email: 'mario@netninja.dev',
+    // };
+    // Going to do the user_email in the api route
     const ticket = {
       title,
       body,
       priority,
-      user_email: 'mario@netninja.dev',
     };
 
-    const res = await fetch('http://localhost:4000/tickets', {
+    // const res = await fetch('http://localhost:4000/tickets', {
+    // Send it to the route handler (3000) instead of the jason -server
+    const res = await fetch('http://localhost:3000/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,12 +38,13 @@ export default function CreateForm() {
       body: JSON.stringify(ticket),
     });
 
-    if (res.status === 201) {
-      // Tell router to refetch data from the backend.
-      router.refresh();
-
-      router.push('/tickets');
-    }
+    // This is for handle response from the jason-server. so can comment it out.
+    // if (res.status === 201) {
+    //   // Tell router to refetch data from the backend.
+    //   router.refresh();
+    //
+    //   router.push('/tickets');
+    // }
   };
 
   return (
