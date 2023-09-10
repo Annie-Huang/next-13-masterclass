@@ -1,5 +1,9 @@
 import Link from 'next/link';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
+/*
+// This is using json-server as DB
 async function getTickets() {
   // imitate delay
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -12,6 +16,14 @@ async function getTickets() {
   });
 
   return res.json();
+}*/
+
+// This is using supabase as DB
+// When you are using a server component, just fetch the data directly, don't need to go through the router.
+// https://supabase.com/docs/guides/auth/auth-helpers/nextjs#server-components
+async function getTickets() {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase.from('Tickets').select();
 }
 
 export default async function TicketList() {
