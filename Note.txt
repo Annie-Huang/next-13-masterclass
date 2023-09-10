@@ -31,6 +31,11 @@ http://localhost:3000/login     << login layout
 http://localhost:3000/signup    << login layout
 
 
+PS C:\react\next-13-masterclass> npm install @supabase/auth-helpers-nextjs @supabase/supabase-js
+PS C:\react\next-13-masterclass> npm install -D encoding
+
+
+
 Build app for production:
 --------------------------------
 PS C:\react\next-13-masterclass> npm run build
