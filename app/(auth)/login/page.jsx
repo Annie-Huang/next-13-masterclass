@@ -2,8 +2,11 @@
 
 import AuthForm from '@/app/(auth)/AuthForm';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useState } from 'react';
 
 export default function Login() {
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
     // console.log('user login', email, password);
@@ -14,6 +17,10 @@ export default function Login() {
       email,
       password,
     });
+
+    if (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -21,6 +28,8 @@ export default function Login() {
       <h2 className='text-center'>Log in</h2>
 
       <AuthForm handleSubmit={handleSubmit} />
+
+      {error && <div className='error'>{error}</div>}
     </main>
   );
 }
