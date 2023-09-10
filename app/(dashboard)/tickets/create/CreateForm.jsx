@@ -11,16 +11,41 @@ export default function CreateForm() {
   const [priority, setPriority] = useState('low');
   const [isLoading, setIsLoading] = useState(false);
 
+  /*
+  // This is using json-server as DB
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // const ticket = {
-    //   title,
-    //   body,
-    //   priority,
-    //   user_email: 'mario@netninja.dev',
-    // };
+    const ticket = {
+      title,
+      body,
+      priority,
+      user_email: 'mario@netninja.dev',
+    };
+
+    const res = await fetch('http://localhost:4000/tickets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(ticket),
+    });
+
+    if (res.status === 201) {
+      // Tell router to refetch data from the backend.
+      router.refresh();
+
+      router.push('/tickets');
+    }
+  };
+*/
+
+  // This is using supabase as DB
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
     // Going to do the user_email in the api route
     const ticket = {
       title,
@@ -28,8 +53,6 @@ export default function CreateForm() {
       priority,
     };
 
-    // const res = await fetch('http://localhost:4000/tickets', {
-    // Send it to the route handler (3000) instead of the jason -server
     const res = await fetch('http://localhost:3000/tickets', {
       method: 'POST',
       headers: {
@@ -38,7 +61,8 @@ export default function CreateForm() {
       body: JSON.stringify(ticket),
     });
 
-    // This is for handle response from the jason-server. so can comment it out.
+    const json = await res.json();
+
     // if (res.status === 201) {
     //   // Tell router to refetch data from the backend.
     //   router.refresh();
