@@ -11,6 +11,7 @@ export default function Login() {
 
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
+    setError('');
     // console.log('user login', email, password);
 
     // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#client-side
