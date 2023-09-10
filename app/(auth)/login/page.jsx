@@ -3,8 +3,10 @@
 import AuthForm from '@/app/(auth)/AuthForm';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const router = useRouter();
   const [error, setError] = useState('');
 
   const handleSubmit = async (e, email, password) => {
@@ -20,6 +22,8 @@ export default function Login() {
 
     if (error) {
       setError(error.message);
+    } else {
+      router.push('/'); // Push to dashboard
     }
   };
 
