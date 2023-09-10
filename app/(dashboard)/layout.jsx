@@ -1,5 +1,6 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 import Navbar from '@/app/components/Navbar';
 
@@ -8,6 +9,12 @@ export default async function DashboardLayout({ children }) {
   // https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs#sign-out
   const { data } = await supabase.auth.getSession();
   // console.log('data=', data);
+
+  // If user is in the dashboard and not login, direct them to login page.
+  if (!data.session) {
+    // Cannot use router.push here because it's not a server component, not a client component.
+    redirect('/login');
+  }
 
   // This will be wrapped as a {children} into the app/layout.jsx file.
   //
