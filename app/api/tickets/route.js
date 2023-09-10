@@ -4,6 +4,7 @@
 // https://nextjs.org/docs/app/api-reference/functions/next-response
 
 import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 
 /*
 If you add this, you will make all functions inside this file to be dynamic calls (call everytime it is request, not cached)
@@ -56,8 +57,18 @@ export async function POST(request) {
   const ticket = await request.json();
 
   // get supabase instance
+  // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#route-handlers
+  const supabase = createRouteHandlerClient({ cookies });
 
   // get the current user session
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
   // insert the data
+  const { data } = await supabase
+    .from('Tickets')
+    .insert({ ...ticket, user_email: session.user.email })
+    .select()
+    .single();
 }
