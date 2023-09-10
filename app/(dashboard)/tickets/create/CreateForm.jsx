@@ -53,7 +53,7 @@ export default function CreateForm() {
       priority,
     };
 
-    const res = await fetch('http://localhost:3000/tickets', {
+    const res = await fetch('http://localhost:3000/api/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,12 +63,15 @@ export default function CreateForm() {
 
     const json = await res.json();
 
-    // if (res.status === 201) {
-    //   // Tell router to refetch data from the backend.
-    //   router.refresh();
-    //
-    //   router.push('/tickets');
-    // }
+    if (json.error) {
+      console.log(error.message);
+    }
+    if (json.data) {
+      // Tell router to refetch data from the backend.
+      router.refresh();
+
+      router.push('/tickets');
+    }
   };
 
   return (
