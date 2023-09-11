@@ -26,11 +26,15 @@ export async function generateMetadata({ params }) {
 // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#server-components
 export async function generateMetadata({ params }) {
   const supabase = createServerComponentClient({ cookies });
-  const { data, error } = await supabase
+  const { data: ticket } = await supabase
     .from('Tickets')
     .select()
     .eq('id', params.id)
     .single(); // .single() to make it into an object form. Otherwise, it will come with an array with only one item.
+
+  return {
+    title: `Dojo Helpdesk | ${ticket?.title || 'Ticket not found'}`,
+  };
 }
 
 /*
