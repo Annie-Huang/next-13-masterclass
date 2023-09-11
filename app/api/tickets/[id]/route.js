@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 /*
 // This is using json-server as DB
@@ -20,3 +22,15 @@ export async function GET(_, { params }) {
 
   return NextResponse.json(ticket, { status: 200 });
 }*/
+
+export async function DELETE(_, { params }) {
+  const id = params.id;
+
+  // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#route-handlers
+  const supabase = createRouteHandlerClient({ cookies });
+
+  // delete record
+  const { error } = await supabase.from('Tickets').delete().eq('id', id);
+
+  return NextResponse.json({ error });
+}
