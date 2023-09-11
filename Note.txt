@@ -37,7 +37,7 @@ http://localhost:3000/tickets/create
 
 PS C:\react\next-13-masterclass> npm install @supabase/auth-helpers-nextjs @supabase/supabase-js
 PS C:\react\next-13-masterclass> npm install -D encoding
-
+PS C:\react\next-13-masterclass> npm install react-icons
 
 
 Build app for production:
