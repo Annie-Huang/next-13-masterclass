@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 export const dynamicParams = true; // default val = true
 
 /*
@@ -6,6 +8,8 @@ https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 
 Dynamically generate Metadata for a page.
 */
+// This is using json-server as DB
+/*
 export async function generateMetadata({ params }) {
   const id = params.id;
 
@@ -15,6 +19,18 @@ export async function generateMetadata({ params }) {
   return {
     title: `Dojo Helpdesk | ${ticket.title}`,
   };
+}
+*/
+
+// This is using supabase as DB
+// https://supabase.com/docs/guides/auth/auth-helpers/nextjs#server-components
+export async function generateMetadata({ params }) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase
+    .from('Tickets')
+    .select()
+    .eq('id', params.id)
+    .single(); // .single() to make it into an object form. Otherwise, it will come with an array with only one item.
 }
 
 /*
