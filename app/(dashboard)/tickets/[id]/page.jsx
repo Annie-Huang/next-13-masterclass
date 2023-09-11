@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import DeleteButton from '@/app/(dashboard)/tickets/[id]/DeleteButton';
 export const dynamicParams = true; // default val = true
 
 /*
@@ -98,10 +99,20 @@ async function getTicket(id) {
 export default async function TicketDetails({ params }) {
   const ticket = await getTicket(params.id);
 
+  // Don't need to check if user is login, because the layout page will already direct user to login page if it's not login yet.
+  // Will not get this this code if not login.
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
+
   return (
     <main>
       <nav>
         <h2>TicketDetails</h2>
+        <div className='ml-auto'>
+          {data.session.user.email === ticket.user_email && (
+            <DeleteButton id={ticket.id} />
+          )}
+        </div>
       </nav>
 
       <div className='card'>
