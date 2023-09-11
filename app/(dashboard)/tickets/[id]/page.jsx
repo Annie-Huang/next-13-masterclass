@@ -25,6 +25,8 @@ is by using 'generateStaticParams'
 When we build for production, this is going to make all the routes and pages for the tickets ahead of time.
 But if you make 'revalidate: 0', you are making the generateStaticParams redundant as nothing will be cache
 */
+// We cannot really statically build page now because we use authentication and only people who is loggin (check cookie) can access tickets now
+/*
 export async function generateStaticParams() {
   // [{id: '1'}, {id: '2'}, ...]
 
@@ -33,7 +35,7 @@ export async function generateStaticParams() {
   const tickets = await res.json();
 
   return tickets.map((ticket) => ({ id: ticket.id }));
-}
+}*/
 
 async function getTicket(id) {
   // imitate delay
