@@ -11,6 +11,10 @@ export default async function DashboardLayout({ children }) {
   // console.log('data=', data);
 
   // If user is in the dashboard and not login, direct them to login page.
+  // This layout cover everything under the tickets page, including
+  // /tickets
+  // /tickets/[id]
+  // /tickets/create
   if (!data.session) {
     // Cannot use router.push here because it's not a server component, not a client component.
     redirect('/login');
