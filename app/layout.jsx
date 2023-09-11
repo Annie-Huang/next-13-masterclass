@@ -3,6 +3,10 @@ import './globals.css';
 import { Rubik } from 'next/font/google';
 // import Navbar from '@/app/components/Navbar';
 
+// Tell next.js not to dynamically build the app since we now involve cookies etc to be about to use the app (not static)
+// Otherwise we will get error during the build time of the app
+export const dynamic = 'force-dynamic';
+
 // const inter = Inter({ subsets: ['latin'] });
 const rubik = Rubik({ subsets: ['latin'] });
 
