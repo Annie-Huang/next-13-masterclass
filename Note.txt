@@ -28,6 +28,8 @@ Need to go to supabase, https://supabase.com/dashboard/projects, and make sure t
 then:
 PS C:\react\next-13-masterclass> npm run db         << json-server --watch --port 4000 .\_data\db.json    << http://localhost:4000/tickets
 PS C:\react\next-13-masterclass> npm run dev
+PS C:\react\next-13-masterclass> npm run build      << need to stop the local dev server when you are building the app for prod
+
 
 http://localhost:3000/                  << ticket dashboard layout
 http://localhost:3000/login             << login layout
@@ -76,6 +78,38 @@ Route (pages)                              Size     First Load JS
 
 And then you can start up the prod build by:
 PS C:\react\next-13-masterclass> npm start
+
+--------------
+
+This is run build after switching it to supabase:
+PS C:\react\next-13-masterclass> npm run build
+
+├ λ /api/tickets/[id]                      0 B                0 B
+├ ○ /favicon.ico                           0 B                0 B
+├ λ /login                                 660 B           109 kB
+├ λ /signup                                702 B           109 kB
+├ λ /tickets                               184 B          84.4 kB
+├ λ /tickets/[id]                          2.13 kB        80.6 kB
+├ λ /tickets/create                        1.24 kB        79.7 kB
+└ λ /verify                                141 B          78.6 kB
++ First Load JS shared by all              78.4 kB
+  ├ chunks/596-2dbb4f62b8882861.js         26 kB
+  ├ chunks/fd9d1056-4691c648476250ad.js    50.5 kB
+  ├ chunks/main-app-e701fcfc6dcad762.js    219 B
+  └ chunks/webpack-9bae338ff3c1df96.js     1.77 kB
+
+Route (pages)                              Size     First Load JS
+─ ○ /404                                   182 B          75.8 kB
++ First Load JS shared by all              75.6 kB
+  ├ chunks/framework-8883d1e9be70c3da.js   45.1 kB
+  ├ chunks/main-46669ffbc657c7a6.js        28.6 kB
+  ├ chunks/pages/_app-52924524f99094ab.js  195 B
+  └ chunks/webpack-9bae338ff3c1df96.js     1.77 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
 
 
 Supabase info
