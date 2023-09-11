@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { TiDelete } from 'react-icons/ti';
 
+// Create a seperate component because we don't want to turn the whole /tickets/[id]/page.jsx into client component
 export default function DeleteButton({ id }) {
   const [isLoading, setIsLoading] = useState(false);
 

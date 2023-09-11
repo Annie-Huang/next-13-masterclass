@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+/*
+// This is using json-server as DB
 export const dynamic = 'force-dynamic';
 
 export async function GET(_, { params }) {
@@ -17,4 +19,4 @@ export async function GET(_, { params }) {
   }
 
   return NextResponse.json(ticket, { status: 200 });
-}
+}*/
