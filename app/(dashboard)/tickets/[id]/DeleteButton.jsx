@@ -12,18 +12,8 @@ export default function DeleteButton() {
 
   return (
     <button className='btn-primary' onClick={handleClick} disabled={isLoading}>
-      {isLoading && (
-        <>
-          <TiDelete />
-          Deleting...
-        </>
-      )}
-      {isLoading && (
-        <>
-          <TiDelete />
-          Delete Ticket
-        </>
-      )}
+      <TiDelete />
+      {isLoading ? 'Deleting...' : 'Delete Ticket'}
     </button>
   );
 }
