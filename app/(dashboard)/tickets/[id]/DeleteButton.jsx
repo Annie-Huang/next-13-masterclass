@@ -9,7 +9,11 @@ export default function DeleteButton({ id }) {
 
   const handleClick = async () => {
     setIsLoading(true);
-    console.log('deleting id - ', id);
+    // console.log('deleting id - ', id);
+
+    const res = await fetch(`http://localhost:3000/api/tickets/${id}`, {
+      method: 'DELETE',
+    });
   };
 
   return (
