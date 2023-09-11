@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import { TiDelete } from 'react-icons/ti';
 
-export default function DeleteButton() {
+export default function DeleteButton({ id }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = async () => {
     setIsLoading(true);
+    console.log('deleting id - ', id);
   };
 
   return (
