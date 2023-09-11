@@ -57,6 +57,8 @@ export async function generateStaticParams() {
   return tickets.map((ticket) => ({ id: ticket.id }));
 }*/
 
+// This is using json-server as DB
+/*
 async function getTicket(id) {
   // imitate delay
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -74,6 +76,23 @@ async function getTicket(id) {
   }
 
   return res.json();
+}
+*/
+
+// This is using supabase as DB
+async function getTicket(id) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase
+    .from('Tickets')
+    .select()
+    .eq('id', id)
+    .single(); // .single() to make it into an object form. Otherwise, it will come with an array with only one item.
+
+  if (!data) {
+    notFound();
+  }
+
+  return data;
 }
 
 export default async function TicketDetails({ params }) {
