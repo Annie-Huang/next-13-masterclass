@@ -5,6 +5,12 @@ import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 
+// Important Note:
+// When you use server action in dev mood, a lot of time, you will need to disable RLS in supabase:
+// https://supabase.com/dashboard/project/ojnieaohntvqlhyvlebc/auth/policies
+// Otherwise it cannot insert data. When you do prod build and use prod build, then it will not have problem.
+// For RLS, you can find info here: https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security
+
 // This method is the same as 'export async function POST(request)' in the app\api\tickets\route.js file
 export async function addTicket(formData) {
   // console.log('hello from the server action');
