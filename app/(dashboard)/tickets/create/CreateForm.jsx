@@ -75,12 +75,14 @@ export default function CreateForm() {
     }
   };
 
+  // <form onSubmit={handleSubmit} className='w-1/2'>
+  // Try to do it through server action way. Need to add 'name' field to all form fields (input, textarea, select) in order for the server action method to be able to access form data
   return (
     <form action={addTicket} className='w-1/2'>
-      {/*<form onSubmit={handleSubmit} className='w-1/2'>*/}
       <label>
         <span>Title:</span>
         <input
+          name='title'
           required
           type='text'
           onChange={(e) => setTitle(e.target.value)}
@@ -90,6 +92,7 @@ export default function CreateForm() {
       <label>
         <span>Body:</span>
         <textarea
+          name='body'
           required
           onChange={(e) => setBody(e.target.value)}
           value={body}
@@ -97,7 +100,11 @@ export default function CreateForm() {
       </label>
       <label>
         <span>Priority:</span>
-        <select onChange={(e) => setPriority(e.target.value)} value={priority}>
+        <select
+          name='priority'
+          onChange={(e) => setPriority(e.target.value)}
+          value={priority}
+        >
           <option value='low'>Low Priority</option>
           <option value='medium'>Medium Priority</option>
           <option value='high'>High Priority</option>
