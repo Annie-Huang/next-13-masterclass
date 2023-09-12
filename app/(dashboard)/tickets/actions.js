@@ -27,8 +27,13 @@ export async function addTicket(formData) {
 
   // insert the data
   const { error } = await supabase
-    .from('Tickets')
+    // .from('Tickets')
+    .from('Ticketss') // test error. Will pass to the first error it can find when bubbling up.
     .insert({ ...ticket, user_email: session.user.email });
+
+  if (error) {
+    throw new Error('Could not add the new ticket.');
+  }
 
   revalidatePath('/tickets');
   redirect('/tickets'); // cannot use "router.push('/tickets');" because it is not a client component, don't have access to router
