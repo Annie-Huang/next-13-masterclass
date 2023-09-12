@@ -2,7 +2,10 @@
 
 import { cookies } from 'next/headers';
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
+// This method is the same as 'export async function POST(request)' in the app\api\tickets\route.js file
 export async function addTicket(formData) {
   // console.log('hello from the server action');
 
@@ -15,4 +18,12 @@ export async function addTicket(formData) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
+
+  // insert the data
+  const { error } = await supabase
+    .from('Tickets')
+    .insert({ ...ticket, user_email: session.user.email });
+
+  revalidatePath('/tickets');
+  redirect('/tickets'); // cannot use "router.push('/tickets');" because it is not a client component, don't have access to router
 }
