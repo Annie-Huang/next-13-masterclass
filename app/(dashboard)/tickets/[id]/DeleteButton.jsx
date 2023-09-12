@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { useRouter } from 'next/navigation';
+import { deleteTicket } from '@/app/(dashboard)/tickets/actions';
 
 // Create a seperate component because we don't want to turn the whole /tickets/[id]/page.jsx into client component
 export default function DeleteButton({ id }) {
+  const [isPending, startTransition] = useTransition();
+
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -27,10 +30,22 @@ export default function DeleteButton({ id }) {
     }
   };
 
-  return (
+  /*  return (
     <button className='btn-primary' onClick={handleClick} disabled={isLoading}>
       <TiDelete />
       {isLoading ? 'Deleting...' : 'Delete Ticket'}
+    </button>
+  );*/
+
+  // Server action way to doing it.
+  return (
+    <button
+      className='btn-primary'
+      onClick={() => startTransition(() => deleteTicket(id))}
+      disabled={isPending}
+    >
+      <TiDelete />
+      {isPending ? 'Deleting...' : 'Delete Ticket'}
     </button>
   );
 }
