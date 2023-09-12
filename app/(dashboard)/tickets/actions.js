@@ -38,3 +38,19 @@ export async function addTicket(formData) {
   revalidatePath('/tickets');
   redirect('/tickets'); // cannot use "router.push('/tickets');" because it is not a client component, don't have access to router
 }
+
+// This method is the same as 'export async function DELETE(_, { params })' in the app\api\tickets\[id]\route.js file
+export async function deleteTicket(id) {
+  // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#server-actions
+  const supabase = createServerActionClient({ cookies });
+
+  // delete the data
+  const { error } = await supabase.from('Tickets').delete().eq('id', id);
+
+  if (error) {
+    throw new Error('Could not delete the ticket');
+  }
+
+  revalidatePath('/tickets');
+  redirect('/tickets'); // cannot use "router.push('/tickets');" because it is not a client component, don't have access to router
+}
