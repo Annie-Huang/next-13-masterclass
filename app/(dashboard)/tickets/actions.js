@@ -27,8 +27,8 @@ export async function addTicket(formData) {
 
   // insert the data
   const { error } = await supabase
-    // .from('Tickets')
-    .from('Ticketss') // test error. Will pass to the first error it can find when bubbling up.
+    .from('Tickets')
+    // .from('Ticketss') // test error. Will pass to the first error it can find when bubbling up.
     .insert({ ...ticket, user_email: session.user.email });
 
   if (error) {
