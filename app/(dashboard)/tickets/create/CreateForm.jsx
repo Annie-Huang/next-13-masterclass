@@ -1,17 +1,18 @@
-'use client';
+// Now we use server action way to make fetch call, we don't really need this as a client component.
+// 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { addTicket } from '@/app/(dashboard)/tickets/actions';
 import SubmitButton from '@/app/components/SubmitButton';
 
 export default function CreateForm() {
-  const router = useRouter();
+  /*  const router = useRouter();
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [priority, setPriority] = useState('low');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);*/
 
   /*
   // This is using json-server as DB
@@ -43,7 +44,7 @@ export default function CreateForm() {
   };
 */
 
-  // This is using supabase as DB
+  /*  // This is using supabase as DB
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -74,7 +75,7 @@ export default function CreateForm() {
 
       router.push('/tickets');
     }
-  };
+  };*/
 
   /*  return (
     <form onSubmit={handleSubmit} className='w-1/2'>
