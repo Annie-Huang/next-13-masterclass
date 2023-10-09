@@ -19,6 +19,8 @@ https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-cac
 https://supabase.com/
 https://supabase.com/docs/guides/auth/auth-helpers/nextjs
 
+
+
 ----------------------------------------------------------------------
 
 You can pretty much find doco from the left and right menu of https://supabase.com/docs/guides/auth/auth-helpers/nextjs#route-handlers
