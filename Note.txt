@@ -19,7 +19,7 @@ https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-cac
 https://supabase.com/
 https://supabase.com/docs/guides/auth/auth-helpers/nextjs
 
-BBB
+CCC
 
 ----------------------------------------------------------------------
 
